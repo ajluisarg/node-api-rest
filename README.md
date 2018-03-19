@@ -25,3 +25,4 @@ An API REST example
 * npm install nodemon --save-dev
 ```
 
+https://docs.google.com/presentation/d/1i10xdsjFbiX3MkS_5DtfP9bwjUywzqZVxh-TeNt3aUg/edit?usp=sharing
