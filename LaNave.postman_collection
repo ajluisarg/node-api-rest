@@ -1,0 +1,229 @@
+{
+	"variables": [],
+	"info": {
+		"name": "LaNave",
+		"_postman_id": "5e4aae38-a2b6-e274-16df-73a4089d0a43",
+		"description": "La Nave",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"url": "http://localhost:3880/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.com\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create event",
+			"request": {
+				"url": "http://localhost:3880/events",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://localhost:3880/users/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"password\" : \"passwo\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"url": "http://localhost:3880/users/me",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"url": "http://localhost:3880/users/me",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJpZCI6IjVhYWZiN2YxNjRmYzU2MjcwYzQ0YmZjNyIsInVzZXJOYW1lIjoiYWpsdWlzYXJnIiwicm9sZSI6Ik1PREVSQVRPUiIsImVtYWlsIjoiYWpsdWlzYXJnQGdtYWlsLmNvbSJ9LCJleHAiOjE1MjE0NzkzOTUsImlhdCI6MTUyMTQ3NTc5NX0.42nGTKqjDleHdvxN0AdrHF2KH7F8i39LBtMIrycCAy0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update event",
+			"request": {
+				"url": "http://localhost:3880/events",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create movie",
+			"request": {
+				"url": "http://localhost:3000/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"El señor de los anillos\",\n\t\"description\": \"gente en un bosque que llevan un anillo\",\n\t\"cover_image\": \"imagen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies",
+			"request": {
+				"url": "http://localhost:3000/movies",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"El señor de los anillos\",\n\t\"description\": \"gente en un bosque que llevan un anillo\",\n\t\"cover_image\": \"imagen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie",
+			"request": {
+				"url": "http://localhost:3000/movies/5ab03663374f2e6f7b2581a0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"El señor de los anillos\",\n\t\"description\": \"gente en un bosque que llevan un anillo\",\n\t\"cover_image\": \"imagen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update movie",
+			"request": {
+				"url": "http://localhost:3000/movies",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"El señor de los anillos\",\n\t\"description\": \"gente en un bosque que llevan un anillo\",\n\t\"cover_image\": \"imagen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie",
+			"request": {
+				"url": "http://localhost:3000/movies",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"5ab03663374f2e6f7b2581a0\",\n    \"name\": \"\",\n    \"cover_image\": \"imagen2\",\n    \"description\": \"gente en un bosque que llevan un anillo\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

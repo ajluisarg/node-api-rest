@@ -1,7 +1,7 @@
-const EventSchema = require("../models/event");
+const EventSchema = require('../models/event');
 
 const createEvent = (req, res) => {
-  console.log("Creating event...");
+  console.log('Creating event...');
 
   EventSchema.create(req.body, (err, user) => {
     if (err) return res.json(`Error creating event: ${err}`).status(400);
@@ -30,12 +30,12 @@ const updateEvent = (req, res) => {
         return res.send(err).status(500);
       }
       return res.status(200).send(event);
-    }
+    },
   );
 };
 
 const deleteEvent = (req, res) => {
-  EventSchema.remove({ _id: req.params.eventId }, err => {
+  EventSchema.remove({ _id: req.params.eventId }, (err) => {
     if (err) {
       return res.send(err).status(500);
     }
@@ -47,5 +47,5 @@ module.exports = {
   createEvent,
   getEvent,
   updateEvent,
-  deleteEvent
+  deleteEvent,
 };
