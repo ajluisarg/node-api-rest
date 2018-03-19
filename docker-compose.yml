@@ -6,7 +6,7 @@ services:
     build: .
     ports:
       - "3888:3888"
-    network:
+    networks:
       - net
     depends_on:
       - mongo
@@ -17,7 +17,7 @@ services:
       - ./data:/data/db
     ports:
       - "27017:27017"
-    network:
+    networks:
       - net
 networks:
-  - net
+  net:

@@ -1,10 +1,11 @@
-const UserSchema = require('../models/user');
-const { secret } = require('../config');
+const UserSchema = require("../models/user");
+const { secret } = require("../config");
+const { generateJWT } = require("../helpers");
 
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const createUser = (req, res) => {
-  console.log('Creating user...');
+  console.log("Creating user...");
 
   UserSchema.create(req.body, (err, user) => {
     if (err) return res.json(`Error creating user: ${err}`).status(400);
@@ -23,30 +24,38 @@ const getUser = (req, res) => {
   });
 };
 
-const updateUser = (req, res) => {
+const updateUser = (req, res) => {};
 
-};
-
-const deleteUser = (req, res) => {
-
-};
+const deleteUser = (req, res) => {};
 
 const getToken = (req, res) => {
-  const {
-    email, userName, password,
-  } = req.body;
+  const { email, password } = req.body;
 
-  UserSchema.findOne(
-    { $or: [{ email }, { userName }], $and: [{ password }] },
-    (err, existingUser) => {
+  UserSchema.findOne({ email }, (err, existingUser) => {
+    if (err || !existingUser) {
+      return res.json("User not found").status(400);
+    }
+    existingUser.comparePassword(password, (err, exist) => {
       if (err) {
-        return res.send(err).status(500);
+        return res.json("User not found").status(400);
       }
-      return res.json(jwt.sign({ foo: existingUser }, secret)).status(200);
-    },
-  );
+      if (exist) {
+        console.log(existingUser);
+
+        return res
+          .send({ token: "Bearer " + generateJWT(existingUser) })
+          .status(200);
+      } else {
+        res.json("User not found").status(400);
+      }
+    });
+  });
 };
 
 module.exports = {
-  createUser, getUser, updateUser, deleteUser, getToken,
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+  getToken
 };

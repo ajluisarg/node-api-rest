@@ -1,32 +1,32 @@
-const mongoose = require('mongoose'),
+const mongoose = require("mongoose"),
   { Schema } = mongoose,
-  bcrypt = require('bcrypt-nodejs');
+  bcrypt = require("bcrypt-nodejs");
 
 const UserSchema = new Schema({
   email: {
     type: String,
     lowercase: true,
     unique: true,
-    required: true,
+    required: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   userName: { type: String, required: true, unique: true },
   image: String,
   role: {
     type: String,
-    enum: ['MEMBER', 'MODERATOR'],
-    default: 'MEMBER',
-  },
+    enum: ["MEMBER", "MODERATOR"],
+    default: "MEMBER"
+  }
 });
 
 // Pre-save of user to database, hash password if password is modified or new
-UserSchema.pre('save', function (next) {
+UserSchema.pre("save", function(next) {
   const user = this,
     SALT_FACTOR = 5;
-  if (!user.isModified('password')) return next();
+  if (!user.isModified("password")) return next();
 
   bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
     if (err) return next(err);
@@ -40,14 +40,13 @@ UserSchema.pre('save', function (next) {
 });
 
 // Method to compare password for login
-UserSchema.methods.comparePassword = function (candidatePassword, cb) {
+UserSchema.methods.comparePassword = function(candidatePassword, next) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     if (err) {
-      return cb(err);
+      return next(err);
     }
-
-    cb(null, isMatch);
+    next(null, isMatch);
   });
 };
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model("Users", UserSchema);

@@ -1,11 +1,7 @@
-const EventSchema = require('../models/event');
+const EventSchema = require("../models/event");
 
 const createEvent = (req, res) => {
-  console.log('Creating event...');
-
-  // verify a token symmetric - synchronous
-  const decoded = jwt.verify(token, 'shhhhh');
-  console.log(decoded); // bar
+  console.log("Creating event...");
 
   EventSchema.create(req.body, (err, user) => {
     if (err) return res.json(`Error creating event: ${err}`).status(400);
@@ -26,18 +22,20 @@ const getEvent = (req, res) => {
 
 const updateEvent = (req, res) => {
   EventSchema.findByIdAndUpdate(
-    req.params.eventId, { $set: req.body },
-    { new: true }, (err, event) => {
+    req.params.eventId,
+    { $set: req.body },
+    { new: true },
+    (err, event) => {
       if (err) {
         return res.send(err).status(500);
       }
       return res.status(200).send(event);
-    },
+    }
   );
 };
 
 const deleteEvent = (req, res) => {
-  EventSchema.remove({ _id: req.params.eventId }, (err) => {
+  EventSchema.remove({ _id: req.params.eventId }, err => {
     if (err) {
       return res.send(err).status(500);
     }
@@ -46,5 +44,8 @@ const deleteEvent = (req, res) => {
 };
 
 module.exports = {
-  createEvent, getEvent, updateEvent, deleteEvent,
+  createEvent,
+  getEvent,
+  updateEvent,
+  deleteEvent
 };
