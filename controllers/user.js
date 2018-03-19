@@ -24,9 +24,29 @@ const getUser = (req, res) => {
   });
 };
 
-const updateUser = (req, res) => {};
+const updateUser = (req, res) => {
+  const update = req.body;
+  UserSchema.findByIdAndUpdate(
+    req.user.userData.id,
+    { $set: req.body },
+    { new: true },
+    (err, user) => {
+      if (err) {
+        return res.send(err).status(500);
+      }
+      return res.status(200).send(user);
+    }
+  );
+};
 
-const deleteUser = (req, res) => {};
+const deleteUser = (req, res) => {
+  UserSchema.remove({ _id: req.user.userData.id }, err => {
+    if (err) {
+      return res.send(err).status(500);
+    }
+    return res.status(204).send();
+  });
+};
 
 const getToken = (req, res) => {
   const { email, password } = req.body;

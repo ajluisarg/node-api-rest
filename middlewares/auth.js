@@ -14,6 +14,7 @@ exports.authentication = (req, res, next) => {
     if (err) return res.status(403).send(err);
 
     req.user = decoded;
+    console.log(req.user);
 
     next();
   });

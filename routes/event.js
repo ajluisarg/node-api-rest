@@ -12,6 +12,10 @@ module.exports = app => {
   app
     .route("/events/:eventId")
     .get((req, res) => eventController.getEvent(req, res))
-    .put((req, res) => eventController.updateEvent(req, res))
-    .delete((req, res) => eventController.deleteEvent(req, res));
+    .put(authentication, checkRole("MODERATOR"), (req, res) =>
+      eventController.updateEvent(req, res)
+    )
+    .delete(authentication, checkRole("MODERATOR"), (req, res) =>
+      eventController.deleteEvent(req, res)
+    );
 };

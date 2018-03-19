@@ -1,0 +1,190 @@
+{
+	"info": {
+		"name": "LaNave",
+		"_postman_id": "1eb4b968-af4e-ce08-c36e-2bd2e7a4239e",
+		"description": "La Nave",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.com\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"events"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"password\" : \"passwo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/users/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"users",
+						"token"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"users",
+						"me"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyRGF0YSI6eyJpZCI6IjVhYWZiN2YxNjRmYzU2MjcwYzQ0YmZjNyIsInVzZXJOYW1lIjoiYWpsdWlzYXJnIiwicm9sZSI6Ik1PREVSQVRPUiIsImVtYWlsIjoiYWpsdWlzYXJnQGdtYWlsLmNvbSJ9LCJleHAiOjE1MjE0NzkzOTUsImlhdCI6MTUyMTQ3NTc5NX0.42nGTKqjDleHdvxN0AdrHF2KH7F8i39LBtMIrycCAy0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"ajluisarg@gmail.co\",\n  \"userName\": \"ajluisarg\",\n  \"password\": \"pass\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"users",
+						"me"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3880/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3880",
+					"path": [
+						"events"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
